@@ -15,9 +15,11 @@ class Imap_Core {
 	 */
 	public function __construct()
 	{
+		
 		// Set Imap Timeouts
-		imap_timeout(IMAP_OPENTIMEOUT,90);
-		imap_timeout(IMAP_READTIMEOUT,90);
+		imap_timeout(IMAP_OPENTIMEOUT,180);
+		imap_timeout(IMAP_READTIMEOUT,180);
+		
 		
 		
 		// If SSL Enabled

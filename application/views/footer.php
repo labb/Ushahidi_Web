@@ -16,7 +16,7 @@
      
  
 	<!-- footer -->
-	<div id="footer" class="clearingfix">
+	<div id="footer" class="clearingfix" style="width:959px">
  
 		<div id="underfooter"></div>
  
@@ -25,7 +25,8 @@
  
 			<!-- footer credits -->
 			<div class="footer-credits">
-				Powered by <a href="http://www.ushahidi.com/"><img src="<?php echo url::base(); ?>/media/img/footer-logo.png" alt="Ushahidi" align="absmiddle" /></a>
+				Powered by <a href="http://www.ushahidi.com/"><img src="<?php echo url::base(); ?>/media/img/footer-logo.png" alt="Ushahidi" align="absmiddle" /></a><p>
+                <div align='center'><a href='http://www.hit-counts.com'><img src='http://www.hit-counts.com/counter.php?t=18&digits=7&ic=2055&cid=702354' border='0' alt='free html visitor counters'></a><BR><a href='http://www.hit-counts.com'>hit counter</a></div>
 			</div>
 			<!-- / footer credits -->
 		
@@ -49,7 +50,7 @@
 				<a href="http://feedback.ushahidi.com/fillsurvey.php?sid=5"><?php echo Kohana::lang('ui_main.feedback'); ?></a>
 			</h2>
 
- 
+ </table></table>
 		</div>
 		<!-- / footer content -->
  

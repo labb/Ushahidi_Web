@@ -36,7 +36,8 @@
 		width: 400px; /* Also specified in  .stripViewer .panelContainer .panel  below */
 		height: 300px;
 		clear: both;
-		
+		padding-bottom:10px;
+		padding-top:10px;
 	}
 	
 	.stripViewer .panelContainer { /* This is the big long container used to house your end-to-end divs. Width is calculated and specified by the JS  */

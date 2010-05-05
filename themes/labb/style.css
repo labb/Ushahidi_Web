@@ -1,0 +1,111 @@
+/*
+Theme Name: LABB - Louisiana Bucket Brigade
+Description: white and green
+Version: 1.0
+Author: Zach Holden
+Author Email: zacharyholden@gmail.com
+*/
+
+.boxx{
+  border-left: 1px solid #555;
+  border-right: 1px solid #555;
+
+  
+}
+
+/* ______ Global Styles */
+
+th,td,p,.text {   font-family: Arial, Helvetica, Verdana, sans-serif;  font-size: 12px; font-weight: normal; color: #000000;}
+
+.text {  line-height: 1.4em; }  
+
+/* header background */
+body#page{
+	background: #ffffff 50% 0 repeat-x;
+}
+
+/* footer */
+div#footer
+{
+	background-color: #507425;
+	
+}
+div#underfooter{
+	background-color:#ffffff;
+}
+
+/* links */
+a{
+    color: #ffffff;
+	
+}
+
+a:hover{
+    color: #F8D92B; text-decoration: underline
+
+}
+
+table.table-list tbody tr td a{
+    color: #0099CC;
+}
+
+/* Logo Box */
+div#logo{
+    background-color: #ffffff;
+}
+
+/* Main Menu */
+div#mainmenu{
+    background-color: #507425;
+	
+}
+
+div#mainmenu a{
+    color: #fff;
+	
+}
+
+div#mainmenu a:hover{
+	color: #fff;
+    background-color: #036564;
+}
+
+div#mainmenu a.active{
+    color: #fff;
+    background-color: #036564;
+}
+
+
+/* Submit Button */
+div.submit-incident a{
+    background-color: #F8D92B;
+    color: #000;
+}
+
+div.submit-incident a:hover{
+	background-color: #368C00;
+}
+
+
+/* Category Filter Side Bar */
+ul.category-filters{
+    background: #E7E3DA;
+    border-top-color: #507425;
+    border-bottom-color: #507425;
+}
+
+ul.category-filters li a{
+    color: #3F3F3F;
+    border-color: #E7E3DA;
+}
+
+ul.category-filters li a:hover, ul.category-filters li a.active {
+    color: #ffffff;
+    background-color: #507425;
+    border-color: #507425;
+}
+
+/* Main Body */
+div#background layoutleft{
+	
+}

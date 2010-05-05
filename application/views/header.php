@@ -127,53 +127,47 @@
 		<!-- header -->
 		<div id="header">
 
-			<!-- searchbox -->
-			<div id="searchbox">
-				<a class="share addthis_button" href="http://www.addthis.com/bookmark.php?v=250&amp;pub=xa-4aee423643f8276e">Share</a>
-
-				<!-- languages -->
-				<div class="language-box">
-					<form>
-						<?php print form::dropdown('l', $locales_array, $l, ' onChange="this.form.submit()" '); ?>
-					</form>
-				</div>
-				<!-- / languages -->
-
-				<!-- searchform -->
-				<div class="search-form">
-					<form method="get" id="search" action="<?php echo url::base() . 'search/'; ?>">
-						<ul>
-							<li><input type="text" name="k" value="" class="text" /></li>
-							<li><input type="submit" name="b" class="searchbtn" value="search" /></li>
-						</ul>
-					</form>
-				</div>
-				<!-- / searchform -->
-
-			</div>
-			<!-- / searchbox -->
-
 			<!-- logo -->
-			<div id="logo">
-				<h1><?php echo $site_name; ?></h1>
-				<span><?php echo $site_tagline; ?></span>
-			</div>
+			
+                <div align="center" class="boxx"> 
+<table border="0" cellspacing="0" cellpadding="0"> 
+  <tr> 
+    <td><table border="0" cellspacing="0" cellpadding="0"> 
+      <tr> 
+        <td><table border="0" cellpadding="0" cellspacing="0"> 
+          <tr> 
+            <td rowspan="2"><a href="http://labucketbrigade.org/index.php"><img src="/themes/labb/labb_index_01.gif" width="565" height="160" border="0"></a></td> 
+            <td><img src="/themes/labb/labb_index_02.gif" width="393" height="114"></td> 
+          </tr> 
+          <tr> 
+            <td><a href="https://npo.networkforgood.org/Donate/Donate.aspx?npoSubscriptionId=1002791"><img src="/themes/labb/labb_index_04.gif" width="393" height="46" border="0"></a></td> 
+          </tr> 
+        </table>
+        
+        <table width="96%" border="0" cellspacing="0" cellpadding="0"> 
+          <tr> 
+            <td><a href="http://labucketbrigade.org/article.php?list=type&type=136"><img src="/themes/labb/labb_index_05.gif" width="99" height="32" border="0"></a></td> 
+            <td><a href="http://labucketbrigade.org/article.php?list=type&type=4"><img src="/themes/labb/labb_index_06.gif" width="195" height="32" border="0"></a></td> 
+            <td><a href="http://labucketbrigade.org/article.php?list=type&type=5"><img src="/themes/labb/labb_index_07.gif" width="165" height="32" border="0"></a></td> 
+            <td><a href="http://labucketbrigade.org/article.php?list=type&type=7"><img src="/themes/labb/labb_index_08.gif" width="118" height="32" border="0"></a></td> 
+            <td><a href="http://labucketbrigade.org/article.php?list=type&type=8"><img src="/themes/labb/labb_index_09.gif" width="102" height="32" border="0"></a></td> 
+            <td><a href="http://labucketbrigade.org/article.php?list=type&type=144"><img src="/themes/labb/labb_index_10.gif" width="122" height="32" border="0"></a></td> 
+            <td><a href="http://labucketbrigade.org/article.php?list=type&type=6"><img src="/themes/labb/labb_index_11.gif" width="157" height="32" border="0"></a></td> 
+          </tr> 
+        </table>
+		</div>
 			<!-- / logo -->
 
-			<!-- submit incident -->
-			<div class="submit-incident clearingfix">
-				<a href="<?php echo url::base() . "reports/submit" ?>"><?php echo Kohana::lang('ui_main.submit'); ?></a>
-			</div>
-			<!-- / submit incident -->
+			
 		</div>
 		<!-- / header -->
 
 		<!-- main body -->
-		<div id="middle">
-			<div class="background layoutleft">
+		<div id="middle" style="width:958px;">
+			<div class="background layoutleft" style="width:958px;">
 
 				<!-- mainmenu -->
-				<div id="mainmenu" class="clearingfix">
+				<div id="mainmenu" class="clearingfix" style="width:934px;">
 					<ul>
 						<li><a href="<?php echo url::base() . "main" ?>" <?php if ($this_page == 'home') echo 'class="active"'; ?>><?php echo Kohana::lang('ui_main.home'); ?></a></li>
 						<li><a href="<?php echo url::base() . "reports" ?>" <?php if ($this_page == 'reports') echo 'class="active"'; ?>><?php echo Kohana::lang('ui_main.reports'); ?></a></li>

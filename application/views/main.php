@@ -21,7 +21,11 @@
 				
 						<!-- right column -->
 						<div id="right" class="clearingfix">
-					
+					<!-- submit incident -->
+			<div class="submit-incident clearingfix" align="center">
+				<a href="<?php echo url::base() . "reports/submit" ?>"><?php echo Kohana::lang('ui_main.submit'); ?></a>
+			</div>
+			<!-- / submit incident -->
 							<!-- category filters -->
 							<div class="cat-filters clearingfix">
 								<strong><?php echo Kohana::lang('ui_main.category_filter');?></strong>
@@ -82,9 +86,10 @@
 							
 							<br />
 						
-							<!-- additional content -->
+							<!--  content -->
 							<div class="additional-content">
-								<h5><?php echo Kohana::lang('ui_main.how_to_report'); ?></h5>
+                            
+								<h5><font color="#ffffff"><?php echo Kohana::lang('ui_main.how_to_report'); ?></font></h5>
 								<ol>
 									<?php if (!empty($phone_array)) 
 									{ ?><li><?php echo Kohana::lang('ui_main.report_option_1')." "; ?> <?php foreach ($phone_array as $phone) {
@@ -106,7 +111,7 @@
 								</ol>					
 		
 							</div>
-							<!-- / additional content -->
+							<!-- /  content -->
 					
 						</div>
 						<!-- / right column -->
@@ -117,7 +122,7 @@
 							
 								<!-- filters -->
 								<div class="filters clearingfix">
-								<div style="float:left; width: 65%">
+<!--								<div style="float:left; width: 65%">
 									<strong><?php echo Kohana::lang('ui_main.filters'); ?></strong>
 									<ul>
 										<li><a id="media_0" class="active" href="#"><span><?php echo Kohana::lang('ui_main.reports'); ?></span></a></li>
@@ -126,14 +131,14 @@
 										<li><a id="media_2" href="#"><span><?php echo Kohana::lang('ui_main.video'); ?></span></a></li>
 										<li><a id="media_0" href="#"><span><?php echo Kohana::lang('ui_main.all'); ?></span></a></li>
 									</ul>
-</div>
-								<div style="float:right; width: 31%">
+</div> -->
+								<!--<div style="float:right; width: 31%">
 									<strong><?php echo Kohana::lang('ui_main.views'); ?></strong>
 									<ul>
 										<li><a id="view_0" <?php if($map_enabled === 'streetmap') { echo 'class="active" '; } ?>href="#"><span><?php echo Kohana::lang('ui_main.clusters'); ?></span></a></li>
 										<li><a id="view_1" <?php if($map_enabled === '3dmap') { echo 'class="active" '; } ?>href="#"><span><?php echo Kohana::lang('ui_main.time'); ?></span></a></li>
 </div>
-								</div>
+								</div> -->
 								<!-- / filters -->
 						
 								<!-- map -->
@@ -163,8 +168,10 @@
 									</form>
 								</div>
 								<?php } ?>
+                                
 								<!-- / map -->
 								<div id="graph" class="graph-holder"></div>
+                                
 							</div>
 						</div>
 						<!-- / content column -->
