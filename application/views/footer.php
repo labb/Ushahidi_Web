@@ -40,6 +40,8 @@
 					<li><a href="#"><?php echo Kohana::lang('ui_main.about'); ?></a></li>
 					<li><a href="#"><?php echo Kohana::lang('ui_main.contact'); ?></a></li>
 					<li><a href="#"><?php echo Kohana::lang('ui_main.blog'); ?></a></li>
+					<li><a href="http://radicaldesigns.org" style="text-decoration: none;"><span style="font-size: 12px; color: #ffffff; font-family: sans-serif;">radical</span><span style="color: #E76432;font-size:10px;  font-family: sans-serif;font-weight: bold;">DESIGNS</span></a>
+                                        </li>
 				</ul>
 				<p><?php echo Kohana::lang('ui_main.copyright'); ?></p>
 			</div>

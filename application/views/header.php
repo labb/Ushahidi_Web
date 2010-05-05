@@ -1,6 +1,6 @@
 <?php
 /**
- * Header view page.
+* Header view page.
  *
  * PHP version 5
  * LICENSE: This source file is subject to LGPL license
@@ -143,16 +143,32 @@
             <td><a href="https://npo.networkforgood.org/Donate/Donate.aspx?npoSubscriptionId=1002791"><img src="/themes/labb/labb_index_04.gif" width="393" height="46" border="0"></a></td> 
           </tr> 
         </table>
-        
-        <table width="96%" border="0" cellspacing="0" cellpadding="0"> 
+
+<style>
+.menu_fix{
+margin-left: 3px;
+display:block;
+height:31px;
+overflow:hidden;
+}
+.menu_fix td{
+padding:0;
+margin:0;
+}
+.menu_spacer{
+width:202px;
+}
+</style> 
+        <table class="menu_fix" align="left" style="background:#507425" border="0" cellspacing="0" cellpadding="0"> 
           <tr> 
-            <td><a href="http://labucketbrigade.org/article.php?list=type&type=136"><img src="/themes/labb/labb_index_05.gif" width="99" height="32" border="0"></a></td> 
-            <td><a href="http://labucketbrigade.org/article.php?list=type&type=4"><img src="/themes/labb/labb_index_06.gif" width="195" height="32" border="0"></a></td> 
-            <td><a href="http://labucketbrigade.org/article.php?list=type&type=5"><img src="/themes/labb/labb_index_07.gif" width="165" height="32" border="0"></a></td> 
-            <td><a href="http://labucketbrigade.org/article.php?list=type&type=7"><img src="/themes/labb/labb_index_08.gif" width="118" height="32" border="0"></a></td> 
-            <td><a href="http://labucketbrigade.org/article.php?list=type&type=8"><img src="/themes/labb/labb_index_09.gif" width="102" height="32" border="0"></a></td> 
-            <td><a href="http://labucketbrigade.org/article.php?list=type&type=144"><img src="/themes/labb/labb_index_10.gif" width="122" height="32" border="0"></a></td> 
-            <td><a href="http://labucketbrigade.org/article.php?list=type&type=6"><img src="/themes/labb/labb_index_11.gif" width="157" height="32" border="0"></a></td> 
+            <td><a href="http://labucketbrigade.org/article.php?list=type&type=136"><img src="/themes/labb/labb_index_05.gif"  height="32" border="0"></a></td> 
+            <td><a href="http://labucketbrigade.org/article.php?list=type&type=4"><img src="/themes/labb/labb_index_06.gif"  height="32" border="0"></a></td> 
+            <td><a href="http://labucketbrigade.org/article.php?list=type&type=5"><img src="/themes/labb/labb_index_07.gif"  height="32" border="0"></a></td> 
+            <td><a href="http://labucketbrigade.org/article.php?list=type&type=7"><img src="/themes/labb/labb_index_08.gif"  height="32" border="0"></a></td> 
+            <td><a href="http://labucketbrigade.org/article.php?list=type&type=8"><img src="/themes/labb/labb_index_09.gif"  height="32" border="0"></a></td> 
+            <td><a href="http://labucketbrigade.org/article.php?list=type&type=144"><img src="/themes/labb/labb_index_10.gif"  height="32" border="0"></a></td> 
+	    <td class="menu_spacer"></td>
+            <td align="right"><a href="http://labucketbrigade.org/article.php?list=type&type=6"><img src="/themes/labb/labb_index_11.gif"  height="32" border="0"></a></td> 
           </tr> 
         </table>
 		</div>
