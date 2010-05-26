@@ -74,6 +74,7 @@ class Api_Controller extends Controller {
 			
 			case "3dkml": //report/add an incident
 				$ret = $this->_3dkml();
+		        header("Content-Type: application/vnd.google-earth.kml+xml; charset=UTF-8");
 			break;
 				
 			case "tagnews": //tag a news item to an incident
@@ -402,8 +403,8 @@ class Api_Controller extends Controller {
 		header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
 		header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date in the past
 		$mime = "";
-		if($this->responseType == 'xml') header("Content-type: text/xml");
-		
+        if($this->responseType == 'xml') header("Content-Type: text/xml");
+
 		print $ret;
 		
 		//END
@@ -591,7 +592,7 @@ class Api_Controller extends Controller {
 	*/
 	function _3dkml(){
 		$kml = '<?xml version="1.0" encoding="UTF-8"?>
-		<kml xmlns="http://earth.google.com/kml/2.2">
+        <kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
 		<Document>
 		<name>Ushahidi</name>'."\n";
 		
@@ -643,14 +644,24 @@ class Api_Controller extends Controller {
 			$color = 'FF'.$hex_color{4}.$hex_color{5}.$hex_color{2}.$hex_color{3}.$hex_color{0}.$hex_color{1};
 			
 			$kml .= '<Placemark>
-				<name>'.$incident->incidenttitle.'</name>
-				<description>'.$incident->incidentdescription.'</description>
+				<name><![CDATA['.$incident->incidenttitle.']]></name>
+<TimeStamp>
+  <when>'.$incident->incidentdate.'</when>
+</TimeStamp>
+				<description><![CDATA['.$incident->incidentdescription.'
+				<br /><br />
+To submit an incident, go to: <a href="http://oilspill.labucketbrigade.org/"> http://oilspill.labucketbrigade.org/ </a><br />
+				]]>
+				</description>
 				<Style>
-					<IconStyle>
-						<Icon>
-							<href>'.url::base().'media/img/color_icon.php?c='.$hex_color.'</href>
-						</Icon>
-					</IconStyle>
+                <IconStyle>
+                    <color>ff'.$hex_color.'</color>
+                    <scale>1.3</scale>
+                    <Icon>
+                        <href>http://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href>
+                    </Icon>
+                    <hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+                    </IconStyle>
 					<LineStyle>
 						<color>'.$color.'</color>
 						<width>2</width>

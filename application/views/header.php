@@ -117,7 +117,68 @@
 		   ui_click: true
 		}
 		<?php echo $js . "\n"; ?>
+
 	</script>
+	<!-- ########### Begin GrassrootsMapping TMS Layers ############# -->
+	<script type="text/javascript" charset="utf-8">
+		function gm_tms() {
+			latlon =  new OpenLayers.Projection('EPSG:4326');
+			spherical =  new OpenLayers.Projection('EPSG:900913');
+
+			var tmsMaxExtent = new OpenLayers.Bounds(-20037508,-20037508,20037508,20037508.34);
+			// console.log(tmsMaxExtent);
+
+			var mapMinZoom = 12;
+			var mapMaxZoom = 20;
+			map.maxExtent = tmsMaxExtent;
+			map.baseLayer.numZoomLevels = 20
+
+			map.baseLayer.resolutions = [156543.0339, 78271.51695, 39135.758475, 19567.8792375, 9783.93961875, 4891.969809375, 2445.9849046875, 1222.99245234375, 611.496226171875, 305.7481130859375, 152.87405654296876, 76.43702827148438, 38.21851413574219, 19.109257067871095, 9.554628533935547, 4.777314266967774, 2.388657133483887, 1.1943285667419434, 0.5971642833709717, 0.29858214168548586]
+
+			function overlay_getTileURL(bounds) {
+				// console.log('overlay_getTileURL')
+				//     console.log(bounds);
+			    var res = this.map.getResolution();
+			    var x = Math.round((bounds.left - this.maxExtent.left) / (res * this.tileSize.w));
+			    var y = Math.round((bounds.bottom - this.tileOrigin.lat) / (res * this.tileSize.h));
+			    var z = this.map.getZoom();
+			    if (this.map.baseLayer.name == 'Virtual Earth Roads' || this.map.baseLayer.name == 'Virtual Earth Aerial' || this.map.baseLayer.name == 'Virtual Earth Hybrid') {
+			       z = z + 1;
+			    }
+				// console.log(this.layerBounds);
+				// console.log(bounds);
+			    if (this.layerBounds.intersectsBounds(bounds) && z >= mapMinZoom && z <= mapMaxZoom ) {
+			       console.log( this.url + z + "/" + x + "/" + y + "." + this.type);
+			       return this.url + z + "/" + x + "/" + y + "." + this.type;
+			    } else {
+			       return "http://www.maptiler.org/img/none.png";
+			    }
+			}
+
+			var TMSUrls = [["http://maps.grassrootsmapping.org/may-7-port-fourchon-balloon-oliver/","May 7 Port Fourchon boat",[-90.2410044402, 29.1552688063, -90.2250135601, 29.1946537898]],
+						   ["http://maps.grassrootsmapping.org/chandeleur-may8-plane/","May 8 Chandeleur overflight",[ -88.8510862263, 29.9065301622, -88.8098846235, 29.991048132]],
+						   ["http://maps.grassrootsmapping.org/may-9-chandeleur-balloon/","May 9 Chandeleur boat",[-88.8702269818, 29.7993140466, -88.861761108, 29.8070744924]]]
+
+			var TMSLayers = []
+
+			for (i=0;i<TMSUrls.length;i++) {
+
+				var tmsoverlay = new OpenLayers.Layer.TMS( TMSUrls[i][1], TMSUrls[i][0], { type: 'png', getURL: overlay_getTileURL, alpha: true, isBaseLayer: false }); 
+				if (OpenLayers.Util.alphaHack() == false) { tmsoverlay.setOpacity(0.7); }; 
+
+				tmsoverlay.layerBounds = new OpenLayers.Bounds(TMSUrls[i][2][0],TMSUrls[i][2][1],TMSUrls[i][2][2],TMSUrls[i][2][3]);
+				tmsoverlay.layerBounds.transform(latlon,spherical);
+				// console.log(tmsBounds);
+				// console.log(tmsoverlay);
+
+				TMSLayers.push(tmsoverlay)
+				map.addLayers([tmsoverlay]);
+
+			}
+		}
+		setTimeout(gm_tms,5000);
+	</script>
+	<!-- ########### End GrassrootsMapping TMS Layers ############# -->
 </head>
 
 <body id="page">
@@ -129,19 +190,84 @@
 
 			<!-- logo -->
 			
-                <div align="center" class="boxx"> 
+                <div align="right" class="boxx"> 
 <table border="0" cellspacing="0" cellpadding="0"> 
+<tr>
+
+ <td><table border="0" cellpadding="0" cellspacing="0" bgcolor="white"> 
+<div class="additional-content"><font color="white" ><strong>Submit an incident via  </strong></font><font color="white">
+<strong>  | TEXT MESSAGE: <font color="black">(504) 27 27 OIL</font>  |  EMAIL: <a href="mailto:bpspillmap@gmail.com"><font color="black">bpspillmap@gmail.com</font></a>  |  TWITTER <font color="black">#BPspillmap</font>  |  or FORM <a href="http://www.oilspill.labucketbrigade.org/reports/submit/"><font color="black">here</font></a></font>
+</strong>
+</td>
+</div>
+
+
+</tr>
+
+
   <tr> 
     <td><table border="0" cellspacing="0" cellpadding="0"> 
       <tr> 
         <td><table border="0" cellpadding="0" cellspacing="0"> 
           <tr> 
-            <td rowspan="2"><a href="http://labucketbrigade.org/index.php"><img src="/themes/labb/labb_index_01.gif" width="565" height="160" border="0"></a></td> 
-            <td><img src="/themes/labb/labb_index_02.gif" width="393" height="114"></td> 
-          </tr> 
-          <tr> 
-            <td><a href="https://npo.networkforgood.org/Donate/Donate.aspx?npoSubscriptionId=1002791"><img src="/themes/labb/labb_index_04.gif" width="393" height="46" border="0"></a></td> 
-          </tr> 
+<!-- Save for Web Slices (labb-website-update.jpg) -->
+<table id="Table_01" width="960" height="146" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+                <td rowspan="3">
+                        <a href="/" ><img src="/themes/labb/images/labb-website-update_text.jpg" width="599" height="105" alt=""></a></td>
+                <td>
+                        <img src="/themes/labb/images/labb-website-update_dala.jpg" width="135" height="80" alt=""></td>
+                <td colspan="2">
+                        <img src="/themes/labb/images/labb-website-update_LABB.jpg" width="154" height="80" alt=""></td>
+                <td rowspan="2">
+                        <img src="/themes/labb/images/labb-website-update_tulane.jpg" width="71" height="81" alt=""></td>
+                <td>
+                        <img src="/themes/labb/images/spacer.gif" width="1" height="80" alt=""></td>
+        </tr>
+        <tr>
+                <td rowspan="3">
+                        <img src="/themes/labb/images/labb-website-update_payson.jpg" width="135" height="66" alt=""></td>
+                <td>
+                        <img src="/themes/labb/images/labb-website-update_LABB-06.jpg" width="69" height="1" alt=""></td>
+                <td rowspan="3">
+                        <img src="/themes/labb/images/labb-website-update_rd.jpg" width="85" height="66" alt=""></td>
+                <td>
+                        <img src="/themes/labb/images/spacer.gif" width="1" height="1" alt=""></td>
+        </tr>
+        <tr>
+                <td rowspan="2">
+                        <img src="/themes/labb/images/labb-website-update_payson-08.jpg" width="69" height="65" alt=""></td>
+                <td rowspan="2">
+                        <img src="/themes/labb/images/labb-website-update_rd-09.jpg" width="71" height="65" alt=""></td>
+                <td>
+                        <img src="/themes/labb/images/spacer.gif" width="1" height="24" alt=""></td>
+        </tr>
+        <tr>
+                <td>
+                        <a href="https://npo.networkforgood.org/Donate/Donate.aspx?npoSubscriptionId=1002791"><img src="/themes/labb/images/labb-website-update_donate.jpg" width="599" height="41" alt=""></a></td>
+                <td>
+                        <img src="/themes/labb/images/spacer.gif" width="1" height="41" alt=""></td>
+        </tr>
+</table>
+<!-- End Save for Web Slices -->
+           </tr>
+<tr>
+
+<form method="get" id="search" action="<?php echo url::base() . 'search/'; ?>">
+<input type="submit" name="b" class="searchbtn" value="search reports" /><input type="text" name="k" value="" class="text" /></form>  get reports: 
+ <a id="reports-rss" class="button btn_rss" href="<?php echo url::base() . 'feed/'; ?>"><font color="black"><strong>RSS</strong></font></a> | 
+<a class="button btn_download" href="<?php echo url::base() . '/api?task=3dkml'; ?>"><font color="black"><strong>KML</strong></font></a> |
+<a class="button btn_download" href="<?php echo url::base() . '/api?task=incidents&by=all&resp=json&limit=10000'; ?>"><font color="black"><strong>JSON</strong></font></a> |
+<a class="button btn_download" href="<?php echo url::base() . 'download/'; ?>"><font color="black"><strong>CSV (table)</strong></font></a>
+
+
+
+</tr>
+
+
+
+
+
         </table>
 
 <style>
@@ -159,18 +285,7 @@ margin:0;
 width:202px;
 }
 </style> 
-        <table class="menu_fix" align="left" style="background:#507425" border="0" cellspacing="0" cellpadding="0"> 
-          <tr> 
-            <td><a href="http://labucketbrigade.org/article.php?list=type&type=136"><img src="/themes/labb/labb_index_05.gif"  height="32" border="0"></a></td> 
-            <td><a href="http://labucketbrigade.org/article.php?list=type&type=4"><img src="/themes/labb/labb_index_06.gif"  height="32" border="0"></a></td> 
-            <td><a href="http://labucketbrigade.org/article.php?list=type&type=5"><img src="/themes/labb/labb_index_07.gif"  height="32" border="0"></a></td> 
-            <td><a href="http://labucketbrigade.org/article.php?list=type&type=7"><img src="/themes/labb/labb_index_08.gif"  height="32" border="0"></a></td> 
-            <td><a href="http://labucketbrigade.org/article.php?list=type&type=8"><img src="/themes/labb/labb_index_09.gif"  height="32" border="0"></a></td> 
-            <td><a href="http://labucketbrigade.org/article.php?list=type&type=144"><img src="/themes/labb/labb_index_10.gif"  height="32" border="0"></a></td> 
-	    <td class="menu_spacer"></td>
-            <td align="right"><a href="http://labucketbrigade.org/article.php?list=type&type=6"><img src="/themes/labb/labb_index_11.gif"  height="32" border="0"></a></td> 
-          </tr> 
-        </table>
+
 		</div>
 			<!-- / logo -->
 
@@ -202,7 +317,7 @@ width:202px;
 						if ($site_help_page)
 						{
 							?>
-							<li><a href="<?php echo url::base() . "help" ?>" <?php if ($this_page == 'help') echo 'class="active"'; ?>><?php echo Kohana::lang('ui_main.help'); ?></a></li>
+							<li><a href="<?php echo url::base() . "help" ?>"><?php echo Kohana::lang('ui_main.help'); ?></a></li>
 							<?php
 						}
 

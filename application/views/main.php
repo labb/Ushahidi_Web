@@ -26,6 +26,16 @@
 				<a href="<?php echo url::base() . "reports/submit" ?>"><?php echo Kohana::lang('ui_main.submit'); ?></a>
 			</div>
 			<!-- / submit incident -->
+
+			<div class="logo"><h3>Health Complaint?</h3>
+If you are experiencing health effects related to the oil spill, contact the Louisiana Poison Center: 1-800-222-1222.  The Poison Center is staffed 24-hours a day and can provide medical management advice. </div>
+
+
+
+							<br />
+
+
+
 							<!-- category filters -->
 							<div class="cat-filters clearingfix">
 								<strong><?php echo Kohana::lang('ui_main.category_filter');?></strong>
@@ -86,32 +96,7 @@
 							
 							<br />
 						
-							<!--  content -->
-							<div class="additional-content">
-                            
-								<h5><font color="#ffffff"><?php echo Kohana::lang('ui_main.how_to_report'); ?></font></h5>
-								<ol>
-									<?php if (!empty($phone_array)) 
-									{ ?><li><?php echo Kohana::lang('ui_main.report_option_1')." "; ?> <?php foreach ($phone_array as $phone) {
-										echo "<strong>". $phone ."</strong>";
-										if ($phone != end($phone_array)) {
-											echo " or ";
-										}
-									} ?></li><?php } ?>
-									<?php if (!empty($report_email)) 
-									{ ?><li><?php echo Kohana::lang('ui_main.report_option_2')." "; ?> <a href="mailto:<?php echo $report_email?>"><?php echo $report_email?></a></li><?php } ?>
-									<?php if (!empty($twitter_hashtag_array)) 
-												{ ?><li><?php echo Kohana::lang('ui_main.report_option_3')." "; ?> <?php foreach ($twitter_hashtag_array as $twitter_hashtag) {
-									echo "<strong>". $twitter_hashtag ."</strong>";
-									if ($twitter_hashtag != end($twitter_hashtag_array)) {
-										echo " or ";
-									}
-									} ?></li><?php } ?>
-									<li><a href="<?php echo url::base() . 'reports/submit/'; ?>"><?php echo Kohana::lang('ui_main.report_option_4'); ?></a></li>
-								</ol>					
-		
-							</div>
-							<!-- /  content -->
+
 					
 						</div>
 						<!-- / right column -->
@@ -168,7 +153,7 @@
 									</form>
 								</div>
 								<?php } ?>
-                                
+						
 								<!-- / map -->
 								<div id="graph" class="graph-holder"></div>
                                 

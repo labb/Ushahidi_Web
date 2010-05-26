@@ -68,22 +68,7 @@
 								<div class="step-2">
 									<h2><?php echo Kohana::lang('ui_main.alerts_step2_send_alerts'); ?></h2>
 									<div class="holder">
-										<div class="box">
-											<label>
-												<?php
-													if ($form['alert_mobile_yes'] == 1) {
-														$checked = true;
-													}
-													else
-													{
-													 	$checked = false;
-													}
-													print form::checkbox('alert_mobile_yes', '1', $checked);
-												?>
-												<span><strong><?php echo Kohana::lang('ui_main.alerts_mobile_phone'); ?></strong><br /><?php echo Kohana::lang('ui_main.alerts_enter_mobile'); ?></span>
-											</label>
-											<span><?php print form::input('alert_mobile', $form['alert_mobile'], ' class="text long"'); ?></span>
-										</div>
+									
 										<div class="box">
 											<label>
 												<?php
@@ -96,14 +81,31 @@
 													}
 													print form::checkbox('alert_email_yes', '1', $checked);
 												?>
-												<span><strong><?php echo Kohana::lang('ui_main.alerts_email'); ?></strong><br /><?php echo Kohana::lang('ui_main.alerts_enter_email'); ?></span>
+												<span><strong><?php echo Kohana::lang('ui_main.alerts_email_format'); ?></strong><br /><?php echo Kohana::lang('ui_main.alerts_enter_email_format'); ?></span>
 											</label>
 											<span><?php print form::input('alert_email', $form['alert_email'], ' class="text long"'); ?></span>
-										</div>
+										
+</div>
+						
+</div>
 									</div>
+								<div class="feed">
+<strong>* To receive the alert as a text message on your mobile phone, just enter your phone number in the email format supported by your wireless carrier:</strong>
+<BR /><BR />
+<li>AT&T: phonenumber@txt.att.net</li>
+<li>Sprint/Nextel: phonenumber@messaging.sprintpcs.com</li>
+<li>T-Mobile: phonenumber@tmomail.net </li>
+<li>Verizon: phonenumber@vtext.com</li>
+<li>Virgin Mobile: phonenumber@vmobl.com </li>
+<li>Boost: phonenumber@myboostmobile.com</li>
+<BR/>
+<strong>where phonenumber = your 10 digit phone number without parenthesis or dashes. Only the numbers, for example: <BR /><BR />5041234567@vtext.com</strong><BR /><BR />
+
 								</div>
 								<input id="btn-send-alerts" class="btn_submit" type="submit" value="<?php echo Kohana::lang('ui_main.alerts_btn_send'); ?>" />
 								<BR /><BR />
+
+
 								<a href="<?php echo url::base()."alerts/confirm";?>"><?php echo Kohana::lang('ui_main.alert_confirm_previous'); ?></a>
 							</div>
 							<?php print form::close(); ?>
