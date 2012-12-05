@@ -641,6 +641,13 @@ class Reports_Controller extends Main_Controller {
 						$comment->comment_spam = 0;
 						$comment->comment_active = 1;
 					}
+
+// +== BTS BEGIN HACK
+// Force comments to be moderated, but not spam
+	$comment->comment_spam = 0;
+	$comment->comment_active = 0;
+
+// +== BTS END HACK 
 					$comment->save();
 
 					// Notify Admin Of New Comment

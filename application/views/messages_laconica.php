@@ -97,7 +97,7 @@
 											<td class="col-1"><input name="message_id[]" id="message_id" value="<?php echo $laconica_mesg_id; ?>" type="checkbox" class="check-box"/></td>
 											<td class="col-2">
 												<div class="post">
-													<p><?php echo $laconica_mesg_description; ?></p>
+													<p><?php echo strip_tags($laconica_mesg_description); ?></p>
 												</div>
 												<ul class="info">
 													<li class="none-separator">From: <strong><a href="<?php echo $laconica_mesg_link; ?>" target="_blank"><?php echo $laconica_mesg_from; ?></a></strong>

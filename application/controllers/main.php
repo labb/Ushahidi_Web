@@ -233,24 +233,49 @@ class Main_Controller extends Template_Controller {
 
 
 
-        // Get The START, END and most ACTIVE Incident Dates
-        $startDate = "";
-        $endDate = "";
-		$active_month = 0;
-		$active_startDate = 0;
-		$active_endDate = 0;
+		// Get The START, END and most ACTIVE Incident Dates
+		
+		
+		// BEGIN BTS 2011-10-05
+		
+		
+		        $startDate = "";
+		        $endDate = "";
+		// $active_month = 0;
+		// $active_startDate = 0;
+		// $active_endDate = 0;
+		//
+		   $db = new Database();
+		// // First Get The Most Active Month
+		// $query = $db->query('SELECT incident_date, count(*) AS incident_count FROM '.$this->table_prefix.'incident WHERE incident_active = 1 GROUP BY DATE_FORMAT(incident_date, \'%Y-%m\') ORDER BY incident_count DESC LIMIT 1');
+		// foreach ($query as $query_active)
+		// {
+		// $active_month = date('n', strtotime($query_active->incident_date));
+		// $active_year = date('Y', strtotime($query_active->incident_date));
+		// $active_startDate = strtotime($active_year . "-" . $active_month . "-01");
+		// $active_endDate = strtotime($active_year . "-" . $active_month .
+		// "-" . date('t', mktime(0,0,0,$active_month,1))." 23:59:59");
+		// }
 
-		$db = new Database();
-		// First Get The Most Active Month
-		$query = $db->query('SELECT incident_date, count(*) AS incident_count FROM '.$this->table_prefix.'incident WHERE incident_active = 1 GROUP BY DATE_FORMAT(incident_date, \'%Y-%m\') ORDER BY incident_count DESC LIMIT 1');
-		foreach ($query as $query_active)
-		{
-			$active_month = date('n', strtotime($query_active->incident_date));
-			$active_year = date('Y', strtotime($query_active->incident_date));
-			$active_startDate = strtotime($active_year . "-" . $active_month . "-01");
-			$active_endDate = strtotime($active_year . "-" . $active_month .
-				"-" . date('t', mktime(0,0,0,$active_month,1))." 23:59:59");
-		}
+
+        // The timeline in the map display defaults to showing three months, with active_month and active year
+        // defining the middle month - so it will show one month before and one month after
+        // active_startDate and active_endDate define the initial date range that will be used to populate the map
+        // as soon as the user zooms the map or makes changes on the timeline, the date range will be reset in the client
+        
+        // so - in order to get the timeline to show the three months up to the current month, and the initial load
+        // of the map to match that date range, we set active_month and active_year to LAST month (since that will 
+        // be the MIDDLE of the three-month date range) and we set active_startDate to a date 2 months before the 
+        // start of the current month
+        
+        $active_date = time();
+        $previous_month = strtotime ("-1 month", $active_date);
+		$active_month = date('n', $previous_month);
+		$active_year = date('Y', $previous_month);
+		$active_startDate = strtotime("-2 months", strtotime(date('Y-m-01 00:00:00', $active_date)));
+		$active_endDate = strtotime(date('Y-m-t 23:59:59', $active_date));
+		// END BTS 2011-10-05
+
 
         // Next, Get the Range of Years
         $query = $db->query('SELECT DATE_FORMAT(incident_date, \'%Y\') AS incident_date FROM '.$this->table_prefix.'incident WHERE incident_active = 1 GROUP BY DATE_FORMAT(incident_date, \'%Y\') ORDER BY incident_date');

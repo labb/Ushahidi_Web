@@ -302,6 +302,7 @@
 								<?php print form::input('captcha', $form['captcha'], ' class="text"'); ?>
 							</div>
 							<div class="report_row">
+                                Note: Comments are moderated and will not appear until they have been approved.<br />
 								<input name="submit" type="submit" value="Submit Comment" class="btn_blue" />
 							</div>
 							<?php print form::close(); ?>

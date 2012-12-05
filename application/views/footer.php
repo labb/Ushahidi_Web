@@ -36,8 +36,11 @@
 					<li><a class="item1" href="<?php echo url::base() ?>"><?php echo Kohana::lang('ui_main.home'); ?></a></li>
 					<li><a href="<?php echo url::base() . "reports/submit" ?>"><?php echo Kohana::lang('ui_main.report_an_incident'); ?></a></li>
 					<li><a href="<?php echo url::base() . "alerts" ?>"><?php echo Kohana::lang('ui_main.alerts'); ?></a></li>
-					<li><a href="<?php echo url::base() . "help" ?>"><?php echo Kohana::lang('ui_main.help'); ?></a></li>
+					<!-- Begin BTS 20111109 removed per Molly -->
+					<!--<li><a href="<?php //echo url::base() . "help" ?>"><?php //echo Kohana::lang('ui_main.help'); ?></a></li>-->
+					<!-- End BTS 20111109 removed per Molly -->
 					<li><a href="<?php echo url::base() . "page/index/1" ?>"><?php echo Kohana::lang('ui_main.about'); ?></a></li>
+					<li><a href="<?php echo url::base() . "page/index/7" ?>">Resources</a></li>
 					<li><a href="<?php echo url::base() . "contact" ?>"><?php echo Kohana::lang('ui_main.contact'); ?></a></li>
 					<li><a href="http://labucketbrigade.wordpress.com/"><?php echo Kohana::lang('ui_main.blog'); ?></a></li>
                                         <li><a href="http://drlatulane.org/">Tulane University DRLA</a>

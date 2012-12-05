@@ -28,7 +28,7 @@
 			<!-- / submit incident -->
 
 			<div class="logo"><h3>Health Complaint?</h3>
-If you are experiencing health effects related to the oil spill, contact the Louisiana Poison Center: 1-800-222-1222.  The Poison Center is staffed 24-hours a day and can provide medical management advice. </div>
+If you are experiencing health effects related to the oil spill, contact the Louisiana Poison Center: 1-800-222-1222.  The Poison Center is staffed 24-hours a day and can provide medical management advice. <br /><br />To report an odor to the EPA, please call 1-866-448-5816</div>
 
 
 
@@ -40,7 +40,6 @@ If you are experiencing health effects related to the oil spill, contact the Lou
 							<div class="cat-filters clearingfix">
 								<strong><?php echo Kohana::lang('ui_main.category_filter');?></strong>
 							</div>
-						
 							<ul class="category-filters">
 								<li><a class="active" id="cat_0" href="#"><div class="swatch" style="background-color:#<?php echo $default_map_all;?>"></div><div class="category-title"><?php echo Kohana::lang('ui_main.all_categories');?></div></a></li>
 								<?php
@@ -61,6 +60,8 @@ If you are experiencing health effects related to the oil spill, contact the Lou
 									}
 								?>
 							</ul>
+
+		
 							<!-- / category filters -->
 							
 							<?php
@@ -127,6 +128,8 @@ If you are experiencing health effects related to the oil spill, contact the Lou
 								<!-- / filters -->
 						
 								<!-- map -->
+								<div class="logo">
+Site best viewed in Firefox or Chrome.  Problems with Internet Explorer have been reported. </div>
 								<?php
 									// My apologies for the inline CSS. Seems a little wonky when styles added to stylesheet, not sure why.
 								?>
@@ -155,6 +158,7 @@ If you are experiencing health effects related to the oil spill, contact the Lou
 								<?php } ?>
 						
 								<!-- / map -->
+											
 								<div id="graph" class="graph-holder"></div>
                                 
 							</div>

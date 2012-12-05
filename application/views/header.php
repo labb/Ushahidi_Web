@@ -148,7 +148,7 @@
 				// console.log(this.layerBounds);
 				// console.log(bounds);
 			    if (this.layerBounds.intersectsBounds(bounds) && z >= mapMinZoom && z <= mapMaxZoom ) {
-			       console.log( this.url + z + "/" + x + "/" + y + "." + this.type);
+			       //console.log( this.url + z + "/" + x + "/" + y + "." + this.type);
 			       return this.url + z + "/" + x + "/" + y + "." + this.type;
 			    } else {
 			       return "http://www.maptiler.org/img/none.png";
@@ -176,7 +176,16 @@
 
 			}
 		}
-		setTimeout(gm_tms,5000);
+		var map
+		function try_gm() {
+			try {
+				if(map != undefined) gm_tms()
+				else setTimeout(try_gm,1000)
+			} catch(e) {
+				setTimeout(try_gm,1000)
+			}
+		}
+		try_gm()
 	</script>
 	<!-- ########### End GrassrootsMapping TMS Layers ############# -->
 </head>
@@ -195,8 +204,9 @@
 <tr>
 
  <td><table border="0" cellpadding="0" cellspacing="0" bgcolor="white"> 
-<div class="additional-content"><font color="white" ><strong>Submit an incident via  </strong></font><font color="white">
-<strong>  | TEXT MESSAGE: <font color="black">(504) 27 27 OIL</font>  |  EMAIL: <a href="mailto:bpspillmap@gmail.com"><font color="black">bpspillmap@gmail.com</font></a>  |  TWITTER <font color="black">#BPspillmap</font>  |  or FORM <a href="http://www.oilspill.labucketbrigade.org/reports/submit/"><font color="black">here</font></a></font>
+<div class="additional-content"><font color="white" ><strong>Report via</strong></font><font color="white">
+<strong> TEXT: <font color="black">(504) 27 27 OIL</font> EMAIL: <a href="mailto:report@labucketbrigade.org"><font color="black">report@labucketbrigade.org</font></a> <!--TWITTER: <font color="black">#BPspillmap</font> iPHONE or ANDROID: <a href="http://oilspill.labucketbrigade.org/page/index/4"><font color="black">App</font></a>--> WEB FORM: <a href="http://www.oilspill.labucketbrigade.org/reports/submit/"><font color="black">here</font></a></font>
+
 </strong>
 </td>
 </div>
@@ -214,7 +224,7 @@
 <table id="Table_01" width="960" height="146" border="0" cellpadding="0" cellspacing="0">
         <tr>
                 <td rowspan="3">
-                        <a href="/" ><img src="/themes/labb/images/labb-website-update_text.jpg" width="599" height="105" alt=""></a></td>
+                        <a href="http://www.labucketbrigade.org/" ><img src="/themes/labb/images/labb-website-update_text.jpg" width="599" height="105" alt=""></a></td>
                 <td>
                         <img src="/themes/labb/images/labb-website-update_dala.jpg" width="135" height="80" alt=""></td>
                 <td colspan="2">
@@ -317,7 +327,7 @@ width:202px;
 						if ($site_help_page)
 						{
 							?>
-							<li><a href="<?php echo url::base() . "help" ?>"><?php echo Kohana::lang('ui_main.help'); ?></a></li>
+							<!--<li><a href="<?php //echo url::base() . "help" ?>"><?php //echo Kohana::lang('ui_main.help'); ?></a></li>-->
 							<?php
 						}
 

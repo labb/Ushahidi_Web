@@ -249,7 +249,7 @@ class Api_Controller extends Controller {
 				* there are several ways to get incidents by
 				*/
 				$by = '';
-				$sort = 'asc';
+				$sort = 'desc';
 				$orderfield = 'incidentid';
 			
 				if(!$this->_verifyArrayIndex($request, 'by')){
@@ -810,7 +810,19 @@ To submit an incident, go to: <a href="http://oilspill.labucketbrigade.org/"> ht
 				$incident_time = $post->incident_hour . ":" . $post->incident_minute . ":00 " . $post->incident_ampm;
 				$incident->incident_date = $incident_date . " " . $incident_time;
 				$incident->incident_dateadd = date("Y-m-d H:i:s",time());
+
+				
+				//BTS BEGIN 2011-10-07
+				if ($post->auth_token == 'JDxEF83bd')
+				{
+				   $incident->incident_active = $post->incident_active;
+				   $incident->incident_alert_status = $post->incident_alert_status;
+				}
+				//BTS END 2011-10-07
+				
 				$incident->save();
+				
+				
 				
 				// SAVE CATEGORIES
 				//check if data is csv or a single value.
