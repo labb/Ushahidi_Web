@@ -1,3 +1,9 @@
 [submodule "application/i18n"]
 	path = application/i18n
 	url = git://github.com/ushahidi/Ushahidi-Localizations.git
+[submodule "plugins/downloadreports"]
+	path = plugins/downloadreports
+	url = https://github.com/rjmackay/Ushahidi-plugin-downloadreports.git
+[submodule "plugins/timespan"]
+	path = plugins/timespan
+	url = https://github.com/jetherton/timespan.git
