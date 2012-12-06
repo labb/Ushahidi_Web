@@ -6,4 +6,4 @@
 	url = https://github.com/rjmackay/Ushahidi-plugin-downloadreports.git
 [submodule "plugins/timespan"]
 	path = plugins/timespan
-	url = https://github.com/jetherton/timespan.git
+	url = https://github.com/rjmackay/timespan.git
