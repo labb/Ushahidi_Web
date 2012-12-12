@@ -165,10 +165,9 @@ class Themes_Core {
 			{
 				// Notes: E.Kala <emmanuel(at)ushahidi.com>
 				// TODO: Only include the jqplot JS when the timeline is enabled
+				$core_js .= "<!--[if IE]>".html::script($this->js_url."media/js/excanvas.min", TRUE)."<![endif]-->";
 				$core_js .= html::script($this->js_url."media/js/jquery.jqplot.min");
 				$core_js .= html::script($this->js_url."media/js/jqplot.dateAxisRenderer.min");
-
-				$core_js .= "<!--[if IE]>".html::script($this->js_url."media/js/excanvas.min", TRUE)."<![endif]-->";
 			}
 		}
 
