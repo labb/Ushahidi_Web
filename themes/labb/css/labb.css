@@ -1,16 +1,16 @@
 /* submit incident */
 div.submit-incident {
 	margin: 5px 5px 15px 5px;
-	float: center;
+	float: none;
 	position: static;
 }
 
 div.submit-incident a {
-	float: center;
+	float: none;
 }
 
 div.submit-incident a:hover {
-	float: center;
+	float: none;
 }
 
 /* mainmenu */
@@ -94,20 +94,11 @@ label.error {
 
 div#header {
 	background: #fff;
-	background-image: linear-gradient(bottom, rgb(255,255,255) 90%, rgb(116,200,208) 0%);
-	background-image: -o-linear-gradient(bottom, rgb(255,255,255) 90%, rgb(116,200,208) 0%);
-	background-image: -moz-linear-gradient(bottom, rgb(255,255,255) 90%, rgb(116,200,208) 0%);
-	background-image: -webkit-linear-gradient(bottom, rgb(255,255,255) 90%, rgb(116,200,208) 0%);
-	background-image: -ms-linear-gradient(bottom, rgb(255,255,255) 90%, rgb(116,200,208) 0%);
-	
-	background-image: -webkit-gradient(
-		linear,
-		left bottom,
-		left top,
-		color-stop(0.9, rgb(255,255,255)),
-		color-stop(0, rgb(116,200,208))
-	);
-	
+	background-image: linear-gradient(top, #fff, #fff 10%, #74C8D0);
+	background-image: -o-linear-gradient(top, #fff, #fff 10%, #74C8D0);
+	background-image: -moz-linear-gradient(top, #fff, #fff 10%, #74C8D0);
+	background-image: -webkit-linear-gradient(top, #fff, #fff 10%, #74C8D0);
+	background-image: -ms-linear-gradient(top, #fff, #fff 10%, #74C8D0);
 	height: 146px;
 }
 
@@ -166,20 +157,12 @@ div#logo a, div#logo a:hover { color: #000; }
 	border-bottom: none;
 	
 	background: #F9E159;
-	background-image: linear-gradient(bottom, rgb(249,225,89) 100%, rgb(249,241,195) 0%);
-	background-image: -o-linear-gradient(bottom, rgb(249,225,89) 100%, rgb(249,241,195) 0%);
-	background-image: -moz-linear-gradient(bottom, rgb(249,225,89) 100%, rgb(249,241,195) 0%);
-	background-image: -webkit-linear-gradient(bottom, rgb(249,225,89) 100%, rgb(249,241,195) 0%);
-	background-image: -ms-linear-gradient(bottom, rgb(249,225,89) 100%, rgb(249,241,195) 0%);
-	
-	background-image: -webkit-gradient(
-		linear,
-		left bottom,
-		left top,
-		color-stop(1, rgb(249,225,89)),
-		color-stop(0, rgb(249,241,195))
-	);
-	
+	background-image: linear-gradient(top, #F9E159, #F9F1C3);
+	background-image: -o-linear-gradient(top, #F9E159, #F9F1C3);
+	background-image: -moz-linear-gradient(top, #F9E159, #F9F1C3);
+  background-image: -webkit-linear-gradient(top, #F9E159, #F9F1C3);
+	background-image: -ms-linear-gradient(top, #F9E159, #F9F1C3);
+		
 	color: #225522;
 	font-weight: normal;
 	font-size: 1.2em;
